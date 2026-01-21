@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kalorien-Tracker</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="app__header">
+      <div>
+        <p class="eyebrow">Kalorien-Tracker</p>
+        <h1>Dein smarter Begleiter für Ernährung</h1>
+        <p class="subtitle">Plane Mahlzeiten, verfolge Kalorien und behalte dein Tagesziel im Blick.</p>
+      </div>
+      <div class="goal">
+        <label for="dailyGoal">Tagesziel (kcal)</label>
+        <input id="dailyGoal" type="number" min="0" step="10" />
+      </div>
+    </header>
+
+    <section class="cards">
+      <article class="card summary">
+        <h2>Heute</h2>
+        <div class="summary__stats">
+          <div>
+            <p class="stat__label">Aufgenommen</p>
+            <p class="stat__value" id="totalCalories">0 kcal</p>
+          </div>
+          <div>
+            <p class="stat__label">Verbleibend</p>
+            <p class="stat__value" id="remainingCalories">0 kcal</p>
+          </div>
+        </div>
+        <div class="progress">
+          <div class="progress__bar" id="progressBar"></div>
+        </div>
+        <p class="progress__hint" id="progressHint">Setze dein Tagesziel, um den Fortschritt zu sehen.</p>
+      </article>
+
+      <article class="card">
+        <h2>Neue Mahlzeit</h2>
+        <form id="mealForm" class="form">
+          <label>
+            Bezeichnung
+            <input id="mealName" type="text" placeholder="z. B. Haferflocken" required />
+          </label>
+          <label>
+            Kalorien
+            <input id="mealCalories" type="number" min="0" step="1" placeholder="z. B. 320" required />
+          </label>
+          <label>
+            Zeitpunkt
+            <input id="mealTime" type="time" required />
+          </label>
+          <label>
+            Kategorie
+            <select id="mealCategory">
+              <option value="Frühstück">Frühstück</option>
+              <option value="Mittagessen">Mittagessen</option>
+              <option value="Snack">Snack</option>
+              <option value="Abendessen">Abendessen</option>
+            </select>
+          </label>
+          <button type="submit">Hinzufügen</button>
+        </form>
+      </article>
+    </section>
+
+    <section class="card log">
+      <div class="log__header">
+        <h2>Mahlzeiten-Log</h2>
+        <button id="clearAll" class="ghost">Alles löschen</button>
+      </div>
+      <div id="mealList" class="log__list">
+        <p class="empty" id="emptyState">Noch keine Einträge. Starte mit deiner ersten Mahlzeit!</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
